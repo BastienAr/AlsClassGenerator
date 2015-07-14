@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AlsFileGenerator
+namespace AlsFileGenerator.utils
 {
-  class TextProgressBar
+  public class TextProgressBar
   {
     private int _size;
     public int Size
@@ -32,6 +28,7 @@ namespace AlsFileGenerator
 
     private void UpdateBar()
     {
+      ConsoleColor bckColor = Console.BackgroundColor;
       Console.CursorLeft = 0;
 
       //draw filled part
@@ -47,7 +44,7 @@ namespace AlsFileGenerator
         Console.BackgroundColor = ConsoleColor.Gray;
         Console.Write(" ");
       }
-      Console.BackgroundColor = ConsoleColor.Black;
+      Console.BackgroundColor = bckColor;
 
       Console.CursorLeft += 4;
       Console.Write("{0} of {1}", _currentValue, _maxValue);
